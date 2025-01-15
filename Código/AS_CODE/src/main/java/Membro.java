@@ -1,10 +1,20 @@
 public class Membro {
+
     private int id;
     private String nome;
     private String curso;
     private String funcao;
     private String contato;
 
+    public Membro() {
+        id = 0;
+        nome = "";
+        curso = "";
+        funcao = "";
+        contato = "";
+    }
+
+    // Sobrecarga
     public Membro(int id, String nome, String curso, String funcao, String contato) {
         this.id = id;
         this.nome = nome;
@@ -13,7 +23,6 @@ public class Membro {
         this.contato = contato;
     }
 
-    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -54,9 +63,5 @@ public class Membro {
         this.contato = contato;
     }
 
-    @Override
-    public String toString() {
-        return "Membro [ID: " + id + ", Nome: " + nome + ", Curso: " + curso + 
-               ", Função: " + funcao + ", Contato: " + contato + "]";
-    }
 }
+

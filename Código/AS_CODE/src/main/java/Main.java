@@ -1,5 +1,8 @@
-public class Main {
+// Matheus Ferreira Alphonse dos Anjos 2454220
+public class PrincipalMembros {
+
     public static void main(String[] args) {
+        // Instância de controle de membros e tarefas
         ControleMembros controle = new ControleMembros();
 
         // Criando membros
@@ -17,15 +20,26 @@ public class Main {
         controle.adicionarTarefa(tarefa2);
 
         // Listando membros
+        exibirMembros(controle);
+
+        // Listando tarefas
+        exibirTarefas(controle);
+    }
+
+    // Método para exibir membros da equipe
+    private static void exibirMembros(ControleMembros controle) {
         System.out.println("Membros da equipe:");
         for (Membro membro : controle.listarMembros()) {
             System.out.println(membro);
         }
+    }
 
-        // Listando tarefas
+    // Método para exibir tarefas atribuídas
+    private static void exibirTarefas(ControleMembros controle) {
         System.out.println("\nTarefas atribuídas:");
         for (Tarefa tarefa : controle.listarTarefas()) {
             System.out.println(tarefa);
         }
     }
 }
+

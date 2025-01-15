@@ -1,9 +1,19 @@
+
 public class Tarefa {
+
     private int id;
     private String descricao;
     private String status; // Exemplo: "Pendente", "Em Progresso", "Concluída"
     private int idMembroResponsavel;
 
+    public Tarefa() {
+        id = 0;
+        descricao = "";
+        status = "";
+        idMembroResponsavel = 0;
+    }
+
+    // Sobrecarga
     public Tarefa(int id, String descricao, String status, int idMembroResponsavel) {
         this.id = id;
         this.descricao = descricao;
@@ -11,7 +21,6 @@ public class Tarefa {
         this.idMembroResponsavel = idMembroResponsavel;
     }
 
-    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -44,9 +53,4 @@ public class Tarefa {
         this.idMembroResponsavel = idMembroResponsavel;
     }
 
-    @Override
-    public String toString() {
-        return "Tarefa [ID: " + id + ", Descrição: " + descricao + ", Status: " + status + 
-               ", ID Membro Responsável: " + idMembroResponsavel + "]";
-    }
 }
