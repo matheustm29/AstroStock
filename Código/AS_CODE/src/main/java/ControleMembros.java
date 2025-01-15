@@ -89,5 +89,11 @@ public class ControleMembros {
     private Tarefa buscarTarefaPorId(int idTarefa) {
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getId() == idTarefa) {
-          
+                return tarefa;
+            }
+        }
+        return null;
+    }
+}
 
+   
