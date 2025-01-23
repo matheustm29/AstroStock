@@ -1,6 +1,6 @@
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ControleMembros {
 
@@ -23,60 +23,59 @@ public class ControleMembros {
 
     // Métodos para Gerenciar Membros
     public Membro adicionarMembro(Membro membro) {
-        for (Membro m : membros) {
-            if (m.getId() == membro.getId()) {
-                return null; // Evitar duplicatas
-            }
+        if (membro == null || membro.getId() <= 0) {
+            throw new IllegalArgumentException("Membro inválido.");
+        }
+        if (buscarMembroPorId(membro.getId()).isPresent()) {
+            return null; // Evitar duplicatas
         }
         membros.add(membro);
         return membro;
     }
 
     public Membro removerMembro(int id) {
-        Membro membroRemovido = buscarMembroPorId(id);
-        if (membroRemovido != null) {
-            membros.remove(membroRemovido);
-        }
-        return membroRemovido;
+        Optional<Membro> membroRemovido = buscarMembroPorId(id);
+        membroRemovido.ifPresent(membros::remove);
+        return membroRemovido.orElse(null);
     }
 
     public List<Membro> listarMembros() {
-        return membros;
+        return new ArrayList<>(membros); // Retorna uma cópia para evitar modificações externas
     }
 
-    private Membro buscarMembroPorId(int id) {
-        for (Membro membro : membros) {
-            if (membro.getId() == id) {
-                return membro;
-            }
-        }
-        return null;
+    private Optional<Membro> buscarMembroPorId(int id) {
+        return membros.stream().filter(membro -> membro.getId() == id).findFirst();
     }
 
     // Métodos para Gerenciar Tarefas
     public Tarefa adicionarTarefa(Tarefa tarefa) {
-        for (Tarefa t : tarefas) {
-            if (t.getId() == tarefa.getId()) {
-                return null; // Evitar duplicatas
-            }
+        if (tarefa == null || tarefa.getId() <= 0) {
+            throw new IllegalArgumentException("Tarefa inválida.");
+        }
+        if (buscarTarefaPorId(tarefa.getId()).isPresent()) {
+            return null; // Evitar duplicatas
         }
         tarefas.add(tarefa);
         return tarefa;
     }
 
     public Tarefa atualizarStatusTarefa(int idTarefa, String novoStatus) {
-        Tarefa tarefa = buscarTarefaPorId(idTarefa);
-        if (tarefa != null) {
-            tarefa.setStatus(novoStatus);
+        if (novoStatus == null || novoStatus.trim().isEmpty()) {
+            throw new IllegalArgumentException("O status não pode ser vazio.");
         }
-        return tarefa;
+        Optional<Tarefa> tarefa = buscarTarefaPorId(idTarefa);
+        tarefa.ifPresent(t -> t.setStatus(novoStatus));
+        return tarefa.orElse(null);
     }
 
     public List<Tarefa> listarTarefas() {
-        return tarefas;
+        return new ArrayList<>(tarefas); // Retorna uma cópia para evitar modificações externas
     }
 
     public List<Tarefa> listarTarefasPorMembro(int idMembro) {
+        if (buscarMembroPorId(idMembro).isEmpty()) {
+            throw new IllegalArgumentException("Membro não encontrado.");
+        }
         List<Tarefa> tarefasMembro = new ArrayList<>();
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getIdMembroResponsavel() == idMembro) {
@@ -86,14 +85,18 @@ public class ControleMembros {
         return tarefasMembro;
     }
 
-    private Tarefa buscarTarefaPorId(int idTarefa) {
-        for (Tarefa tarefa : tarefas) {
-            if (tarefa.getId() == idTarefa) {
-                return tarefa;
-            }
-        }
-        return null;
+    private Optional<Tarefa> buscarTarefaPorId(int idTarefa) {
+        return tarefas.stream().filter(tarefa -> tarefa.getId() == idTarefa).findFirst();
+    }
+
+    @Override
+    public String toString() {
+        return "ControleMembros{" +
+               "membros=" + membros +
+               ", tarefas=" + tarefas +
+               '}';
     }
 }
+
 
    

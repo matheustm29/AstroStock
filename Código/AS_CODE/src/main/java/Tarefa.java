@@ -1,9 +1,10 @@
+import java.util.Objects;
 
 public class Tarefa {
 
     private int id;
     private String descricao;
-    private String status; // Exemplo: "Pendente", "Em Progresso", "Concluída"
+    private String status; // Enum pode ser usado aqui
     private int idMembroResponsavel;
 
     public Tarefa() {
@@ -13,8 +14,16 @@ public class Tarefa {
         idMembroResponsavel = 0;
     }
 
-    // Sobrecarga
     public Tarefa(int id, String descricao, String status, int idMembroResponsavel) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("O ID deve ser maior que zero.");
+        }
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("A descrição não pode ser vazia.");
+        }
+        if (status == null || status.trim().isEmpty()) {
+            throw new IllegalArgumentException("O status não pode ser vazio.");
+        }
         this.id = id;
         this.descricao = descricao;
         this.status = status;
@@ -26,6 +35,9 @@ public class Tarefa {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("O ID deve ser maior que zero.");
+        }
         this.id = id;
     }
 
@@ -34,6 +46,9 @@ public class Tarefa {
     }
 
     public void setDescricao(String descricao) {
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("A descrição não pode ser vazia.");
+        }
         this.descricao = descricao;
     }
 
@@ -42,6 +57,9 @@ public class Tarefa {
     }
 
     public void setStatus(String status) {
+        if (status == null || status.trim().isEmpty()) {
+            throw new IllegalArgumentException("O status não pode ser vazio.");
+        }
         this.status = status;
     }
 
@@ -53,4 +71,27 @@ public class Tarefa {
         this.idMembroResponsavel = idMembroResponsavel;
     }
 
+    @Override
+    public String toString() {
+        return "Tarefa{" +
+               "id=" + id +
+               ", descricao='" + descricao + '\'' +
+               ", status='" + status + '\'' +
+               ", idMembroResponsavel=" + idMembroResponsavel +
+               '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tarefa tarefa = (Tarefa) o;
+        return id == tarefa.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
+

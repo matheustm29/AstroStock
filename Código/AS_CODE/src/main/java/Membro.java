@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Membro {
 
     private int id;
@@ -14,8 +16,13 @@ public class Membro {
         contato = "";
     }
 
-    // Sobrecarga
     public Membro(int id, String nome, String curso, String funcao, String contato) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("O ID deve ser maior que zero.");
+        }
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome não pode ser vazio.");
+        }
         this.id = id;
         this.nome = nome;
         this.curso = curso;
@@ -27,41 +34,45 @@ public class Membro {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
     public String getFuncao() {
         return funcao;
-    }
-
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
     }
 
     public String getContato() {
         return contato;
     }
 
-    public void setContato(String contato) {
-        this.contato = contato;
+    @Override
+    public String toString() {
+        return "Membro{" +
+               "id=" + id +
+               ", nome='" + nome + '\'' +
+               ", curso='" + curso + '\'' +
+               ", funcao='" + funcao + '\'' +
+               ", contato='" + contato + '\'' +
+               '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Membro membro = (Membro) o;
+        return id == membro.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
+
 
