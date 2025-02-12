@@ -2,6 +2,7 @@
 import com.mycompany.astrostock.Relatorio;
 import com.mycompany.astrostock.ControleMembros;
 import com.mycompany.astrostock.Membro;
+import com.mycompany.astrostock.Tarefa;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
