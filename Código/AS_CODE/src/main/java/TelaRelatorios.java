@@ -1,3 +1,12 @@
+
+import com.mycompany.astrostock.Relatorio;
+import com.mycompany.astrostock.ControleMembros;
+import com.mycompany.astrostock.Membro;
+import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +23,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
      */
     public TelaRelatorios() {
         initComponents();
+        relatorioMembro();
     }
 
     /**
@@ -25,22 +35,343 @@ public class TelaRelatorios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGerarRelatorio = new javax.swing.JButton();
+        cbRelatorio = new javax.swing.JComboBox<>();
+        pnMembro = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbMembro = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
+        pnTarefa = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbTarefa = new javax.swing.JTable();
+        btnPesquisarTarefa = new javax.swing.JButton();
+        cbMembros = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JTextField();
+        cbIdTarefas = new javax.swing.JComboBox<>();
+        btnAlterarStatus = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnGerarRelatorio.setText("Gerar Relatorio");
+        btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarRelatorioActionPerformed(evt);
+            }
+        });
+
+        cbRelatorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Membro", "Tarefa", "Projeto", " " }));
+        cbRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbRelatorioActionPerformed(evt);
+            }
+        });
+
+        tbMembro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nome", "Curso", "Funcao", "Contato"
+            }
+        ));
+        jScrollPane1.setViewportView(tbMembro);
+        if (tbMembro.getColumnModel().getColumnCount() > 0) {
+            tbMembro.getColumnModel().getColumn(3).setHeaderValue("Funcao");
+            tbMembro.getColumnModel().getColumn(4).setHeaderValue("Contato");
+        }
+
+        jLabel1.setText("Remover Membro (ID): ");
+
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+
+        btnPesquisar.setText("Remover");
+        btnPesquisar.setToolTipText("");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnMembroLayout = new javax.swing.GroupLayout(pnMembro);
+        pnMembro.setLayout(pnMembroLayout);
+        pnMembroLayout.setHorizontalGroup(
+            pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMembroLayout.createSequentialGroup()
+                .addGroup(pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnMembroLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnMembroLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisar)))
+                .addContainerGap(92, Short.MAX_VALUE))
+        );
+        pnMembroLayout.setVerticalGroup(
+            pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMembroLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
+
+        tbTarefa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Descricao", "Status", "Membro Responsavel"
+            }
+        ));
+        jScrollPane5.setViewportView(tbTarefa);
+
+        btnPesquisarTarefa.setText("Pesquisar");
+        btnPesquisarTarefa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarTarefaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Atualizar Status da Tarefa: ");
+
+        cbIdTarefas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbIdTarefasActionPerformed(evt);
+            }
+        });
+
+        btnAlterarStatus.setText("Alterar");
+        btnAlterarStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarStatusActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Id: ");
+
+        javax.swing.GroupLayout pnTarefaLayout = new javax.swing.GroupLayout(pnTarefa);
+        pnTarefa.setLayout(pnTarefaLayout);
+        pnTarefaLayout.setHorizontalGroup(
+            pnTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTarefaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbMembros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPesquisarTarefa)
+                .addGap(223, 223, 223))
+            .addGroup(pnTarefaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnTarefaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane5)
+                        .addContainerGap())
+                    .addGroup(pnTarefaLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbIdTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(btnAlterarStatus)
+                        .addGap(48, 48, 48))))
+        );
+        pnTarefaLayout.setVerticalGroup(
+            pnTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTarefaLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pnTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPesquisarTarefa)
+                    .addComponent(cbMembros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbIdTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterarStatus)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addComponent(btnGerarRelatorio)
+                        .addGap(65, 65, 65)
+                        .addComponent(cbRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(pnMembro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(358, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(140, 140, 140)
+                    .addComponent(pnTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(348, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(pnMembro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGerarRelatorio)
+                    .addComponent(cbRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addComponent(pnTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(60, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioActionPerformed
+        // TODO add your handling code here:
+        gerarRelatorio();
+    }//GEN-LAST:event_btnGerarRelatorioActionPerformed
+
+    private void cbRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRelatorioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbRelatorioActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtId.getText());
+        pesquisarMembro(id);
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnPesquisarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarTarefaActionPerformed
+        // TODO add your handling code here:
+        pesquisarTarefa();
+    }//GEN-LAST:event_btnPesquisarTarefaActionPerformed
+
+    private void cbIdTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIdTarefasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbIdTarefasActionPerformed
+
+    private void btnAlterarStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarStatusActionPerformed
+        // TODO add your handling code here:
+        atualizarStatus();
+    }//GEN-LAST:event_btnAlterarStatusActionPerformed
+    private void gerarRelatorio(){
+        ControleMembros controle = ControleMembros.getInstancia();
+        //List<Membro> membros = controle.listarMembros();
+        //String relatorio = Relatorio.gerarRelatorioMembros(membros);
+        String relatorio = "";
+        String opcaoSelecionada = (String) cbRelatorio.getSelectedItem();
+        if(null != opcaoSelecionada) switch (opcaoSelecionada) {
+            case "Membro" -> relatorioMembro();//relatorio = Relatorio.gerarRelatorioMembros(controle.listarMembros());
+            case "Tarefa" -> relatorioTarefa();//relatorio = Relatorio.gerarRelatorioTarefas(controle.listarTarefas());
+            case "Projeto" -> relatorio = Relatorio.gerarRelatorioProjetos(List.of()); // Ajuste conforme necessário
+            default -> {
+            }
+        }
+
+    }
+    public void relatorioMembro(){
+        pnMembro.setVisible(true);
+        pnTarefa.setVisible(false);
+        ControleMembros controle = ControleMembros.getInstancia();
+        List<Membro> membros = controle.listarMembros();
+        DefaultTableModel conteudo = (DefaultTableModel)tbMembro.getModel();
+        conteudo.setRowCount(0);
+        for(Membro membro : membros) {
+            Object[] linha = {
+                membro.getId(),
+                membro.getNome(),
+                membro.getCurso(),
+                membro.getFuncao(),
+                membro.getContato()
+            };
+            conteudo.addRow(linha);
+        }
+    }
+    public void relatorioTarefa(){
+        pnMembro.setVisible(false);
+        pnTarefa.setVisible(true);
+        ControleMembros controle = ControleMembros.getInstancia();
+        List<Membro> membros = controle.listarMembros();
+        for (Membro membro : membros) {
+            cbMembros.addItem(membro.getNome()); // O nome será mostrado, mas o objeto Membro é armazenado
+        }
+        List<Tarefa> tarefas = controle.listarTarefas();
+        
+        for (Tarefa tarefa : tarefas) {
+            cbIdTarefas.addItem(String.valueOf(tarefa.getId())); // O nome será mostrado, mas o objeto Membro é armazenado
+        }
+        
+        DefaultTableModel conteudo = (DefaultTableModel)tbTarefa.getModel();
+        conteudo.setRowCount(0);
+        for(Tarefa tarefa : tarefas) {
+            Object[] linha = {
+                tarefa.getId(),
+                tarefa.getDescricao(),
+                tarefa.getIdMembroResponsavel()
+            };
+            conteudo.addRow(linha);
+        }
+    }
+    public void pesquisarMembro(int id){
+        ControleMembros controle = ControleMembros.getInstancia();
+        controle.removerMembro(id);
+    }
+    public void pesquisarTarefa(){
+        int index = (int) cbRelatorio.getSelectedIndex();
+        ControleMembros controle = ControleMembros.getInstancia();
+        List<Membro> membros = controle.listarMembros();
+        Membro membroSelecionado = membros.get(index);
+        int id = membroSelecionado.getId();
+        List<Tarefa> tarefas = controle.listarTarefasPorMembro(id);
+        DefaultTableModel conteudo = (DefaultTableModel)tbTarefa.getModel();
+        conteudo.setRowCount(0);
+        for(Tarefa tarefa : tarefas) {
+            Object[] linha = {
+                tarefa.getId(),
+                tarefa.getDescricao(),
+                tarefa.getIdMembroResponsavel()
+            };
+            conteudo.addRow(linha);
+        }
+    }
+    public void atualizarStatus(){
+        String status = txtStatus.getText();
+        int id = Integer.parseInt((String) cbIdTarefas.getSelectedItem());
+        ControleMembros controle = ControleMembros.getInstancia();
+        controle.atualizarStatusTarefa(id, status);
+        JOptionPane.showMessageDialog(this, "Status da tarefa atualizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+    }
     /**
      * @param args the command line arguments
      */
@@ -67,6 +398,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -75,7 +407,34 @@ public class TelaRelatorios extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarStatus;
+    private javax.swing.JButton btnGerarRelatorio;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnPesquisarTarefa;
+    private javax.swing.JComboBox<String> cbIdTarefas;
+    private javax.swing.JComboBox<String> cbMembros;
+    private javax.swing.JComboBox<String> cbRelatorio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JPanel pnMembro;
+    private javax.swing.JPanel pnMembro1;
+    private javax.swing.JPanel pnMembro2;
+    private javax.swing.JPanel pnMembro3;
+    private javax.swing.JPanel pnTarefa;
+    private javax.swing.JTable tbMembro;
+    private javax.swing.JTable tbMembro1;
+    private javax.swing.JTable tbMembro2;
+    private javax.swing.JTable tbMembro3;
+    private javax.swing.JTable tbTarefa;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
+
 }

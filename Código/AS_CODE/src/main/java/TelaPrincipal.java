@@ -1,3 +1,9 @@
+
+import com.mycompany.astrostock.TelaRelatorios;
+import com.mycompany.astrostock.CadastroMembro;
+import com.mycompany.astrostock.CadastroTarefa;
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -25,21 +31,78 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnMembro = new javax.swing.JButton();
+        btnTarefa = new javax.swing.JButton();
+        btnRelatorio = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnMembro.setText("membro");
+        btnMembro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMembroActionPerformed(evt);
+            }
+        });
+
+        btnTarefa.setText("tarefa");
+        btnTarefa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTarefaActionPerformed(evt);
+            }
+        });
+
+        btnRelatorio.setText("relatorio");
+        btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnMembro)
+                .addGap(30, 30, 30)
+                .addComponent(btnTarefa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(btnRelatorio)
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMembro)
+                    .addComponent(btnRelatorio)
+                    .addComponent(btnTarefa))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembroActionPerformed
+        // TODO add your handling code here:
+        CadastroMembro tela = new CadastroMembro(); // Cria a nova tela
+        tela.setVisible(true);
+        //this.dispose(); // Fecha a tela atual
+    }//GEN-LAST:event_btnMembroActionPerformed
+
+    private void btnTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTarefaActionPerformed
+        // TODO add your handling code here:
+        CadastroTarefa tela = new CadastroTarefa(); // Cria a nova tela
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnTarefaActionPerformed
+
+    private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
+        // TODO add your handling code here:
+        TelaRelatorios tela = new TelaRelatorios(); // Cria a nova tela
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -67,6 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -77,5 +141,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMembro;
+    private javax.swing.JButton btnRelatorio;
+    private javax.swing.JButton btnTarefa;
     // End of variables declaration//GEN-END:variables
 }
