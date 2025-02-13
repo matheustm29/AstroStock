@@ -1,4 +1,4 @@
-
+package com.mycompany.astrostock;
 import com.mycompany.astrostock.Membro;
 import javax.swing.JOptionPane;
 import com.mycompany.astrostock.ControleMembros;
@@ -209,7 +209,6 @@ public class CadastroMembro extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroMembro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

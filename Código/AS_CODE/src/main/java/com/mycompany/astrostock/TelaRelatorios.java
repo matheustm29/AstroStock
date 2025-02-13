@@ -1,8 +1,7 @@
-
+package com.mycompany.astrostock;
 import com.mycompany.astrostock.Relatorio;
 import com.mycompany.astrostock.ControleMembros;
 import com.mycompany.astrostock.Membro;
-import com.mycompany.astrostock.Tarefa;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -398,7 +397,6 @@ public class TelaRelatorios extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

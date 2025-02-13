@@ -1,4 +1,4 @@
-
+package com.mycompany.astrostock;
 import com.mycompany.astrostock.Tarefa;
 import com.mycompany.astrostock.Membro;
 import com.mycompany.astrostock.ControleMembros;
@@ -158,7 +158,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroTarefa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

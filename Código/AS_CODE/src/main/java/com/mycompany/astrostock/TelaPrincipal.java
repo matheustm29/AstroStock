@@ -1,4 +1,4 @@
-
+package com.mycompany.astrostock;
 import com.mycompany.astrostock.TelaRelatorios;
 import com.mycompany.astrostock.CadastroMembro;
 import com.mycompany.astrostock.CadastroTarefa;
@@ -129,7 +129,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
