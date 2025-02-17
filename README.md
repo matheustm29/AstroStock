@@ -8,7 +8,6 @@
 - [Descrição do Projeto](#-descrição-do-projeto)
 - [Status do Projeto](#-status-do-projeto)
 - [Funcionalidades e Demonstração da Aplicação](#-funcionalidades-e-demonstração-da-aplicação)
-- [Acesso ao Projeto](#-acesso-ao-projeto)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Pessoas Desenvolvedoras do Projeto](#-pessoas-desenvolvedoras-do-projeto)
 - [Licença](#-licença)
@@ -42,20 +41,12 @@ Adicione aqui uma imagem, vídeo ou link que mostre o projeto funcionando:
 
 ---
 
-## 🔗 Acesso ao Projeto
-Você pode acessar os arquivos do projeto clicando [aqui](#).  
-Ou clonar o repositório:
-
-
-git clone https://github.com/matheustm29/AstroStock
-
------
-
 ## 🚀 Tecnologias Utilizadas
 
 Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=white)
 
 
 ---
