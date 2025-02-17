@@ -45,7 +45,9 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white)
 - ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=white)
-
+- React
+- Postman
+- MongoDB
 
 ---
 
