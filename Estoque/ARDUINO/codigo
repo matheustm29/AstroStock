@@ -1,8 +1,8 @@
-#include <WiFi.h> // Use <ESP8266WiFi.h> se for ESP8266
+#include <WiFi.h> 
 
 const char* ssid = "NOME_DO_WIFI";
 const char* password = "SENHA_DO_WIFI";
-const char* server = "http://seu-servidor.com/verifica_estoque.php"; // URL do banco de dados na internet
+const char* server = 
 
 #define LED_PIN 7
 #define BUZZER_PIN 6
