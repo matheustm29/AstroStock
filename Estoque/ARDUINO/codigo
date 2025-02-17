@@ -1,0 +1,61 @@
+#include <WiFi.h> // Use <ESP8266WiFi.h> se for ESP8266
+
+const char* ssid = "NOME_DO_WIFI";
+const char* password = "SENHA_DO_WIFI";
+const char* server = "http://seu-servidor.com/verifica_estoque.php"; // URL do banco de dados na internet
+
+#define LED_PIN 7
+#define BUZZER_PIN 6
+
+WiFiClient client;
+
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(BUZZER_PIN, OUTPUT);
+    
+    Serial.begin(115200);
+    
+    conectarWiFi();
+}
+
+void conectarWiFi() {
+    Serial.print("Conectando ao Wi-Fi");
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println("\nConectado ao Wi-Fi!");
+}
+
+void verificarEstoque() {
+    Serial.println("Consultando banco de dados...");
+    WiFiClient client;
+
+    if (client.connect(server, 80)) {
+        client.println("GET /verifica_estoque.php HTTP/1.1");
+        client.println("Host: seu-servidor.com");
+        client.println("Connection: close");
+        client.println();
+
+        String resposta = "";
+        while (client.available()) {
+            resposta += client.readString();
+        }
+        client.stop();
+
+        if (resposta.indexOf("ALERTA") != -1) {
+            digitalWrite(LED_PIN, HIGH);
+            tone(BUZZER_PIN, 1000, 500);
+        } else {
+            digitalWrite(LED_PIN, LOW);
+        }
+    } else {
+        Serial.println("Falha na conexão com o servidor.");
+    }
+}
+
+void loop() {
+    verificarEstoque();
+    delay(5000); // Verifica a cada 5 segundos
+}
