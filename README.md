@@ -35,9 +35,7 @@ Uma inovação futura do projeto é a integração com um circuito LCD, permitin
 - [ ] Circuito LCD para exibir status do estoque em tempo real (futuro).
 
 ### Demonstração:
-Adicione aqui uma imagem, vídeo ou link que mostre o projeto funcionando:
 ![Demonstração](imagens/demonstracao.png)  
-**Ou acesse a aplicação ao vivo:** [Link para a demonstração](#).
 
 ---
 
