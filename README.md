@@ -25,18 +25,14 @@ Uma inovação futura do projeto é a integração com um circuito LCD, permitin
 
 ---
 
-## 🚦 Status do Projeto
--> ⚠️ **Em desenvolvimento**
-
----
 
 ## ✨ Funcionalidades e Demonstração da Aplicação
 ### Funcionalidades:
 - [x] Cadastro de peças e materiais com informações detalhadas.
 - [x] Controle de consumo e geração de alertas para reposição de estoque.
 - [x] Registro de foguetes e associação aos materiais utilizados.
-- [ ] Cadastro de membros e associação às atividades e tarefas do projeto.
-- [ ] Relatórios e dashboards para análise de dados.
+- [x] Cadastro de membros e associação às atividades e tarefas do projeto.
+- [x] Relatórios e dashboards para análise de dados.
 - [ ] Circuito LCD para exibir status do estoque em tempo real (futuro).
 
 ### Demonstração:
@@ -68,10 +64,10 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 ## 👩‍💻👨‍💻 Pessoas Desenvolvedoras do Projeto
 
 - [Matheus Alphonse](https://github.com/matheustm29)  
-- [Desenvolvedor 2](https://github.com/dev2)  
-- [Desenvolvedor 3](https://github.com/dev3)  
-- [Desenvolvedor 4](https://github.com/dev4)  
-- [Desenvolvedor 5](https://github.com/dev5)  
+- [Luhan Christyan]((https://github.com/LuhanChristyan))  
+- [Leonardo Rodrigues](https://github.com/LeoRodrigues1)  
+- [Leonardo Rodrigues]((https://github.com/leololeo630))  
+- [Thomas Hurtado](https://github.com/ThomasHurtado)  
 
 ---
 
