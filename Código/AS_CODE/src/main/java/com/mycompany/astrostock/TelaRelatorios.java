@@ -56,6 +56,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnGerarRelatorio.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         btnGerarRelatorio.setText("Gerar Relatorio");
         btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +64,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             }
         });
 
+        cbRelatorio.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         cbRelatorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Membro", "Tarefa", "Projeto", " " }));
         cbRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,14 +86,17 @@ public class TelaRelatorios extends javax.swing.JFrame {
             tbMembro.getColumnModel().getColumn(4).setHeaderValue("Contato");
         }
 
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel1.setText("Remover Membro (ID): ");
 
+        txtId.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
             }
         });
 
+        btnPesquisar.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         btnPesquisar.setText("Remover");
         btnPesquisar.setToolTipText("");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -105,18 +110,16 @@ public class TelaRelatorios extends javax.swing.JFrame {
         pnMembroLayout.setHorizontalGroup(
             pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnMembroLayout.createSequentialGroup()
-                .addGroup(pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(16, 16, 16)
+                .addGroup(pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnMembroLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnMembroLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisar)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         pnMembroLayout.setVerticalGroup(
             pnMembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,6 +144,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tbTarefa);
 
+        btnPesquisarTarefa.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         btnPesquisarTarefa.setText("Pesquisar");
         btnPesquisarTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,14 +152,26 @@ public class TelaRelatorios extends javax.swing.JFrame {
             }
         });
 
+        cbMembros.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        cbMembros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMembrosActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel2.setText("Atualizar Status da Tarefa: ");
 
+        txtStatus.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+
+        cbIdTarefas.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         cbIdTarefas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbIdTarefasActionPerformed(evt);
             }
         });
 
+        btnAlterarStatus.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         btnAlterarStatus.setText("Alterar");
         btnAlterarStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,6 +179,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel3.setText("Id: ");
 
         javax.swing.GroupLayout pnTarefaLayout = new javax.swing.GroupLayout(pnTarefa);
@@ -285,6 +302,10 @@ public class TelaRelatorios extends javax.swing.JFrame {
         // TODO add your handling code here:
         atualizarStatus();
     }//GEN-LAST:event_btnAlterarStatusActionPerformed
+
+    private void cbMembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMembrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMembrosActionPerformed
     private void gerarRelatorio(){
         ControleMembros controle = ControleMembros.getInstancia();
         //List<Membro> membros = controle.listarMembros();
@@ -321,8 +342,10 @@ public class TelaRelatorios extends javax.swing.JFrame {
     public void relatorioTarefa(){
         pnMembro.setVisible(false);
         pnTarefa.setVisible(true);
+        //ControleMembros controle = ControleMembros.getInstancia();
         ControleMembros controle = ControleMembros.getInstancia();
         List<Membro> membros = controle.listarMembros();
+        cbMembros.removeAllItems();
         for (Membro membro : membros) {
             cbMembros.addItem(membro.getNome()); // O nome será mostrado, mas o objeto Membro é armazenado
         }
@@ -338,6 +361,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             Object[] linha = {
                 tarefa.getId(),
                 tarefa.getDescricao(),
+                tarefa.getStatus(),
                 tarefa.getIdMembroResponsavel()
             };
             conteudo.addRow(linha);
@@ -346,9 +370,23 @@ public class TelaRelatorios extends javax.swing.JFrame {
     public void pesquisarMembro(int id){
         ControleMembros controle = ControleMembros.getInstancia();
         controle.removerMembro(id);
+        //ATUALIZA A LISTA
+        List<Membro> membros = controle.listarMembros();
+        DefaultTableModel conteudo = (DefaultTableModel)tbMembro.getModel();
+        conteudo.setRowCount(0);
+        for(Membro membro : membros) {
+            Object[] linha = {
+                membro.getId(),
+                membro.getNome(),
+                membro.getCurso(),
+                membro.getFuncao(),
+                membro.getContato()
+            };
+            conteudo.addRow(linha);
+        }
     }
     public void pesquisarTarefa(){
-        int index = (int) cbRelatorio.getSelectedIndex();
+        int index = (int) cbMembros.getSelectedIndex();
         ControleMembros controle = ControleMembros.getInstancia();
         List<Membro> membros = controle.listarMembros();
         Membro membroSelecionado = membros.get(index);
@@ -360,6 +398,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             Object[] linha = {
                 tarefa.getId(),
                 tarefa.getDescricao(),
+                tarefa.getStatus(),
                 tarefa.getIdMembroResponsavel()
             };
             conteudo.addRow(linha);
@@ -371,6 +410,19 @@ public class TelaRelatorios extends javax.swing.JFrame {
         ControleMembros controle = ControleMembros.getInstancia();
         controle.atualizarStatusTarefa(id, status);
         JOptionPane.showMessageDialog(this, "Status da tarefa atualizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        //ATUALIZA A LISTA
+        List<Tarefa> tarefas = controle.listarTarefas();
+        DefaultTableModel conteudo = (DefaultTableModel)tbTarefa.getModel();
+        conteudo.setRowCount(0);
+        for(Tarefa tarefa : tarefas) {
+            Object[] linha = {
+                tarefa.getId(),
+                tarefa.getDescricao(),
+                tarefa.getStatus(),
+                tarefa.getIdMembroResponsavel()
+            };
+            conteudo.addRow(linha);
+        }
     }
     /**
      * @param args the command line arguments
@@ -398,6 +450,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -418,19 +471,10 @@ public class TelaRelatorios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel pnMembro;
-    private javax.swing.JPanel pnMembro1;
-    private javax.swing.JPanel pnMembro2;
-    private javax.swing.JPanel pnMembro3;
     private javax.swing.JPanel pnTarefa;
     private javax.swing.JTable tbMembro;
-    private javax.swing.JTable tbMembro1;
-    private javax.swing.JTable tbMembro2;
-    private javax.swing.JTable tbMembro3;
     private javax.swing.JTable tbTarefa;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtStatus;
